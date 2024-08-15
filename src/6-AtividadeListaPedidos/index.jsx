@@ -9,7 +9,7 @@ export default function Home() {
     const [listaProdutos, setProdutos] = useState([
         { id: 1, titulo: 'As Vantagens de Ser Invisível', preco: 'R$ 30,00' },
         { id: 2, titulo: 'Six of Crows', preco: 'R$ 40,00' },
-        { id: 3, titulo: 'Crooked Kingdom', preco: 'R$ 45,00' }
+        { id: 3, titulo: 'Crooked Kingdom', preco: 'R$ 45,00' }]);
 
 
     const [listaPedidos, setListaPedidos] = useState([]);
@@ -17,7 +17,7 @@ export default function Home() {
     const adicionarItemPedidos = (objeto) => {
         setListaPedidos([...listaPedidos, objeto])
     }
-]);
+
     return (
         <div>
             <h1>Meus Livros Favoritos:</h1>

@@ -39,65 +39,65 @@
 // No conteúdo do botão, coloque o texto "Remover".
 
 
-
-import {useState} from "react";
+import { useState } from "react";
 
 export default function Home() {
 
-const [listaProdutos, setProdutos] = useState([
-    {id: 1, titulo: 'As Vantagens de Ser Invisível', autor: 'Stephen ', preco: 'R$ 30,00'},
-    {id: 2, titulo: 'Six of Crows', autor: 'Leigh Bardugo', preco: 'R$ 40,00'},
-    {id: 3, titulo: 'Crooked Kingdom', autor: 'Leigh Bardugo', preco: 'R$ 45,00'},
-    {id: 4, titulo: 'Confidências de uma Ex-Popular', autor: 'Ray Tavares', preco: 'R$ 35,00'},
-    {id: 5, titulo: 'Os Crimes ABC', autor: 'Agatha Christie', preco: 'R$ 20,00'},]);
+    const [arrayProdutos, setProdutos] = useState([
+        { id: 1, titulo: 'As Vantagens de Ser Invisível', autor:'Stephen Chbosky', preco: 'R$ 30,00' },
+        { id: 2, titulo: 'Six of Crows', autor:'Leigh Bardugo', preco: 'R$ 40,00' },
+        { id: 3, titulo: 'Crooked Kingdom', autor:'Leigh Bardugo', preco: 'R$ 45,00' },
+        { id: 4, titulo: 'Confidências de uma Ex-Popular', autor: 'Ray Tavares', preco: 'R$ 35,00'},
+        { id: 5, titulo: 'Os Crimes ABC', autor: 'Agatha Christie', preco: 'R$ 20,00'}
+    ]);
 
-    const [listaPedidos, setListaPedidos] = useState([]);
+
+    const [meusPedidos, setMeusPedidos] = useState([]);
 
     const adicionarItemPedidos = (objeto) => {
-        setListaPedidos([...listaPedidos, objeto])
+        setMeusPedidos([...meusPedidos, objeto])
     }
 
-    const removerPedido = (id) => {
+    const removerItemPedidos = (id) => {
         let remover = false;
-        let listaAux = listaPedidos.filter((produto) => {
+        let listaAux = meusPedidos.filter((produto) => {
             if (remover == false) {
-                if (produto.id !== id){
+                if (produto.id !== id) {
                     return produto
-                }else{
+                } else {
                     remover = true;
                     return null
                 }
-            }else{
-                return produto
             }
-        }
-        );
-        setListaPedidos(listaAux);
+        });
+        setMeusPedidos(listaAux);
     }
 
     return (
         <div>
             <h1>Meus Livros Favoritos:</h1>
-          {
-            listaProdutos.map((produto)=>
-              <div key={produto.id}>
-              <p>{produto.titulo}</p>
-              <p>{produto.autor}</p>
-              <p>{produto.preco}</p>
-              <button onClick={()=> adicionarItemPedidos(produto)}>Selecionar</button>
-              </div>
-)}
-          {
-           
-            listaPedidos.map((produto)=>
-              <div key={produto.id}>
-              <p>{produto.titulo}</p>
-              <p>{produto.autor}</p>
-              <p>{produto.preco}</p>
-              <button onClick={()=> removerItemPedidos(produto)}>Remover</button>
-              </div>
-              )
+            {
+                arrayProdutos.map((produto) =>
+                    <div key={produto.id}>
+                        <p>{produto.titulo}</p>
+                        <p>{produto.autor}</p>
+                        <p>{produto.preco}</p>
+                        <button onClick={() => adicionarItemPedidos(produto)}>Selecionar</button>
+                    </div>
+                )
             }
-          </div>
-        )
-      }
+            {
+                meusPedidos.map((produto) =>
+                    <div key={produto.id}>
+                        <p>{produto.titulo}</p>
+                        <p>{produto.autor}</p>
+                        <p>{produto.preco}</p>
+                        <button onClick={()=> removerItemPedidos(produto.id)}>Remover</button>
+                    </div>
+
+                )
+            }
+        </div>
+    );
+}
+

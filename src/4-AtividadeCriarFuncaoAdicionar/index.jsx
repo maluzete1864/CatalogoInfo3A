@@ -30,9 +30,9 @@ export default function Home() {
               <p>{produto.titulo}</p>
               <p>{produto.preco}</p>
               </div>
-       </div>
+       
     )
-  }
-</div>
-)
+    }
+    </div>
+    )
 }
