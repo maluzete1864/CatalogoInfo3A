@@ -1,6 +1,25 @@
 import { Link } from "react-router-dom";
 import "./globals.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
+export default function Header(){
+    return(
+        <div>
+            <Header title={"title"}/>
+        </div>
+    );
+}
+
+
+
+export default function Footer(){
+    return(
+        <div>
+            <Footer desenvolvedor={"desenvolvedor"}/>
+        </div>
+    );
+}
 export default function App() {
     return (
         <div>

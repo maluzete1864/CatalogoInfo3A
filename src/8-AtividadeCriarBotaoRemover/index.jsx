@@ -101,3 +101,22 @@ export default function Home() {
     );
 }
 
+import Header from "./components/Header";
+
+export default function Header(){
+    return(
+        <div>
+            <Header title={"title"}/>
+        </div>
+    );
+}
+
+import Footer from "./components/Footer";
+
+export default function Footer(){
+    return(
+        <div>
+            <Footer desenvolvedor={"desenvolvedor"}/>
+        </div>
+    );
+}
